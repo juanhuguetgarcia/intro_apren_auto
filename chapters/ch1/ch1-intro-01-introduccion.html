@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introducción al Aprendizaje Automático &#8212; Introducción al Aprendizaje Automático</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Terminología básica" href="ch1-intro-01-1-terminologia-basica.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introducción al Aprendizaje Automático</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="#">
+   Introducción al Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch1-intro-01-1-terminologia-basica.html">
+   Terminología básica
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/ch1/ch1-intro-01-introduccion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/juanhuguetgarcia/intro_apren_auto"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/juanhuguetgarcia/intro_apren_auto/issues/new?title=Issue%20on%20page%20%2Fchapters/ch1/ch1-intro-01-introduccion.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/juanhuguetgarcia/intro_apren_auto/master?urlpath=tree/chapters/ch1/ch1-intro-01-introduccion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/juanhuguetgarcia/intro_apren_auto/blob/master/chapters/ch1/ch1-intro-01-introduccion.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-el-aprendizaje-automatico">
+   Qué es el aprendizaje automático ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#donde-se-aplica">
+   Dónde se aplica ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#auge-reciente-del-aprendizaje-automatico">
+   Auge reciente del Aprendizaje Automático
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#referencias">
+   Referencias
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduccion-al-aprendizaje-automatico">
+<h1>Introducción al Aprendizaje Automático<a class="headerlink" href="#introduccion-al-aprendizaje-automatico" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="que-es-el-aprendizaje-automatico">
+<h2>Qué es el aprendizaje automático ?<a class="headerlink" href="#que-es-el-aprendizaje-automatico" title="Permalink to this headline">¶</a></h2>
+<p>En el diccionario<a class="reference external" href="#fn1"><sup>1</sup></a> es posible encontrar dos definiciones formales de la Inteligencia Artificial:</p>
+<blockquote>
+<div><p>Una rama de la Ciencia de la Computación que intenta simular el comportamiento inteligente en los ordenadores.</p>
+</div></blockquote>
+<p>y</p>
+<blockquote>
+<div><p>La capacidad de una máquina para imitar el comportamiento inteligente de los humanos.</p>
+</div></blockquote>
+<p>Hoy en día, estamos aún en la primera definición, donde ya es posible en determinados problemas computacionales, alcanzar y mejorar el rendimiento de las personas. Sin embargo, aún queda mucho camino para que una máquina generalice nuestro comportamiento inteligente en diferentes problemas. Por tanto, comencemos por avanzar en la primera definición.</p>
+<p>El <em>Computer Curricula</em> de la ACM<a class="reference external" href="#fn2"><sup>2</sup></a> y el IEEE define el estudio de la inteligencia artificial (IA) como el estudio de soluciones para problemas que son difíciles o poco prácticos de resolver con los métodos tradicionales. Así, es interesante como el estudio de Inteligencia Artificial prepara a un estudiante de Ingeniería Informática para determinar cuándo un enfoque basado en las técnicas de IA es apropiado para un problema dado, para su representación, implementación y evaluación.</p>
+</div>
+<div class="section" id="donde-se-aplica">
+<h2>Dónde se aplica ?<a class="headerlink" href="#donde-se-aplica" title="Permalink to this headline">¶</a></h2>
+<p>Podemos ver entonces como la Inteligencia Artificial está compuesta por un conjunto de áreas que proporcionan numerosos métodos de resolución de problemas:</p>
+<ul class="simple">
+<li><p>Agentes inteligentes.</p></li>
+<li><p>Estrategias de búsqueda.</p></li>
+<li><p>Representación del conocimiento.</p></li>
+<li><p>Aprendizaje automático.</p></li>
+<li><p>Razonamiento con incertidumbre.</p></li>
+<li><p>Procesamiento del lenguaje natural.</p></li>
+<li><p>Robótica.</p></li>
+<li><p>Visión por computador.</p></li>
+</ul>
+<p>Las tres últimas áreas incorporan mecanismos de percepción a las máquinas para captar la información del mundo real, y pueden verse como parte necesaria para que una máquina tenga un comportamiento inteligente. Las tres primeras áreas representan el enfoque tradicional de la inteligencia artificial, donde el paradigma es definir las reglas que resuelven el problema.
+Sin embargo, el Aprendizaje Automático, de origen anterior a la aproximación tradicional, representa el paradigma donde se busca extraer las reglas que resuelven el problema a partir de la información disponible: <strong>los datos</strong>.</p>
+</div>
+<div class="section" id="auge-reciente-del-aprendizaje-automatico">
+<h2>Auge reciente del Aprendizaje Automático<a class="headerlink" href="#auge-reciente-del-aprendizaje-automatico" title="Permalink to this headline">¶</a></h2>
+<p>En los últimos años, el Aprendizaje Automático ha sufrido un fuerte impulso en las empresas debido a la coincidencia de tres factores:</p>
+<ol class="simple">
+<li><p>la mejora de las infraestructuras de computación</p></li>
+<li><p>la gran cantidad de datos disponibles (“big data”)</p></li>
+<li><p>el avance de la investigación</p></li>
+</ol>
+<p><img alt="ch1-factors-ai-now" src="../../_images/ch1-factors-ai-now.png" /></p>
+<p><a class="reference external" href="https://medium.com/redpoint-ventures/three-things-you-need-to-know-about-machine-learning-99e6f5815aee">Fuente</a></p>
+<p>Estos tres factores han impulsado el <strong>Aprendizaje Automático</strong> a múltiples aplicaciones prácticas. De hecho, los modelos de Aprendizaje Automático están integrados en la infraestructura de muchos motores de búsqueda de productos comerciales, en aplicaciones industriales, diagnósticos médicos, aplicaciones de reconocimiento de voz o de objetos, el control de robots o en los videojuegos.</p>
+</div>
+<div class="section" id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<p><span id="fn1"> </span>
+<a class="reference external" href="https://www.merriam-webster.com/dictionary/artificial%20intelligence">1. Merriam Webster Dictionary</a></p>
+<p><span id="fn2"> </span>
+<a class="reference external" href="https://www.acm.org/education/curricula-recommendations">2. ACM</a></p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/ch1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="ch1-intro-01-1-terminologia-basica.html" title="next page">Terminología básica</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By J. Varona; G. Moyà, J. Huguet-Garcia<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
