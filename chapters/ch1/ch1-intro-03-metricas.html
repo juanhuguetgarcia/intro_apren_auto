@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terminología básica &#8212; Introducción al Aprendizaje Automático</title>
+    <title>Medidas de rendimiento &#8212; Introducción al Aprendizaje Automático</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -86,7 +86,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Terminología básica
+   Medidas de rendimiento
   </a>
  </li>
 </ul>
@@ -194,36 +194,53 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tipos-de-aprendizaje-automatico">
-   Tipos de aprendizaje automático
+  <a class="reference internal nav-link" href="#tipos-de-problemas-de-aprendizaje-automatico">
+   Tipos de problemas de aprendizaje automático
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#medidas-de-rendimiento-de-problemas-de-regresion">
+   Medidas de rendimiento de problemas de regresión
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aprendizaje-supervisado">
-     Aprendizaje supervisado
+    <a class="reference internal nav-link" href="#errores-cuadraticos">
+     Errores cuadráticos
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aprendizaje-no-supervisado">
-     Aprendizaje no supervisado
+    <a class="reference internal nav-link" href="#errores-absolutos">
+     Errores absolutos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-considerar">
+     A considerar…
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prediccion">
-   Predicción
+  <a class="reference internal nav-link" href="#medidas-de-rendimiento-para-problemas-de-clasificacion">
+   Medidas de rendimiento para problemas de clasificación
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ejercicios">
-   Ejercicios
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#referencias">
-   Referencias
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tipos-de-error-de-clasificacion">
+     Tipos de error de clasificacion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matriz-de-confusion">
+     Matriz de confusión
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metricas-segun-clase-predicha">
+     Métricas según clase predicha
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -235,52 +252,144 @@
         
               <div>
                 
-  <div class="section" id="terminologia-basica">
-<h1>Terminología básica<a class="headerlink" href="#terminologia-basica" title="Permalink to this headline">¶</a></h1>
-<p>Una de las definiciones formales más aceptadas del Aprendizaje Automático es la de Tom Mitchell<a class="reference external" href="#fn1"><sup>1</sup></a> de la Carnegie Mellon University (CMU):</p>
-<blockquote>
-<div><p>A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
-</div></blockquote>
-<p>o en castellano:</p>
-<blockquote>
-<div><p>“Un programa computacional que aprende de la experiencia E para resolver una determinada tarea T, si su rendimiento R para resolver la tarea T mejora a través de la experiencia E”</p>
-</div></blockquote>
-<p>En primer lugar, tenemos que tener clara la tarea <span class="math notranslate nohighlight">\(T\)</span> (problema) a resolver. Por ejemplo, imaginemos que tenemos que hacer un programa que sea capaz de reconocer el genero de una persona a través de su fotografía, es decir, que, dada la imagen de una persona, nuestro programa devuelva como resultado si es <code class="docutils literal notranslate"><span class="pre">hombre</span></code> o <code class="docutils literal notranslate"><span class="pre">mujer</span></code>.</p>
-<p>¿Cuál sería la experiencia <span class="math notranslate nohighlight">\(E\)</span> en esta tarea? Pues un conjunto de imágenes etiquetadas con el género de cada persona. Esta experiencia se define formalmente como dataset. Una vez tenemos los datos preparados, ya podemos realizar el programa que consistirá en la implementación de alguno de los modelos conocidos de Aprendizaje Automático.</p>
-<p>Este programa ha de ser capaz de predecir el género de una persona cuando reciba una imagen de entrada, y para realizar dicha predicción, ha de realizar previamente el aprendizaje para resolver el problema a partir de los datos. El aprendizaje consistirá en ir mostrando diferentes imágenes e ir ajustando los parámetros de nuestro modelo con el objetivo de minimizar el error de la predicción, es decir, los aciertos de nuestro modelo respecto a las etiquetas reales del dataset.</p>
-<p>En este ejemplo, hemos visto 3 términos básicos de los métodos de aprendizaje automático: <strong>dataset</strong>, <strong>predicción</strong> y <strong>aprendizaje</strong>. El <strong>dataset</strong>, o conjunto de datos, nos define el problema a resolver, y es necesario para poder realizar el aprendizaje de un modelo de Aprendizaje Automático. El <strong>aprendizaje</strong>, o entrenamiento, consiste en establecer los parámetros de un modelo de Aprendizaje Automático para que resuelvan el problema definido por los datos, y consiste en un algoritmo que, generalmente, es particular para cada uno de los modelos.</p>
-<div class="section" id="tipos-de-aprendizaje-automatico">
-<h2>Tipos de aprendizaje automático<a class="headerlink" href="#tipos-de-aprendizaje-automatico" title="Permalink to this headline">¶</a></h2>
-<p>La división más usada entre los modelos de Aprendizaje Automático depende del tipo de algoritmo.</p>
-<div class="section" id="aprendizaje-supervisado">
-<h3>Aprendizaje supervisado<a class="headerlink" href="#aprendizaje-supervisado" title="Permalink to this headline">¶</a></h3>
-<p>El dataset está compuesto por <strong>pares</strong> de entrenamiento que consisten en entrada y salida deseada (etiqueta). Es como si tuviéramos un <strong>maestro</strong> que para cada muestra o ejemplo nos dice cuál tendría que ser la salida. Es el caso del ejemplo anterior de reconocimiento de género. Donde la entrada sería la imagen de una persona y la salida deseada sería el género real de la persona. Casi la totalidad de los casos de uso en la industria a día de hoy pertenecen a este tipo de aprendizaje.</p>
+  <div class="section" id="medidas-de-rendimiento">
+<h1>Medidas de rendimiento<a class="headerlink" href="#medidas-de-rendimiento" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tipos-de-problemas-de-aprendizaje-automatico">
+<h2>Tipos de problemas de aprendizaje automático<a class="headerlink" href="#tipos-de-problemas-de-aprendizaje-automatico" title="Permalink to this headline">¶</a></h2>
+<p>Antes de poder definir las medidas de rendimiento de los modelos de Aprendizaje Automático realizaremos una división de los tipos de problemas que pueden resolver:</p>
+<p><strong>Regresión</strong></p>
+<p>En los problemas de regresión el objetivo es aproximar una función continua, es decir, el valor de salida deseada es un valor contínuo. Por ejemplo, si queremos predecir el precio de un producto.</p>
+<p><strong>Clasificación</strong></p>
+<p>En este caso, el valor de salida deseada es una etiqueta o clase. El ejemplo de predicción de género sería un problema de clasificación ya que la salida deseada sería “hombre” o “mujer”.</p>
+<p>Dependiendo del tipo de problema, las medidas de rendimiento son diferentes.</p>
 </div>
-<div class="section" id="aprendizaje-no-supervisado">
-<h3>Aprendizaje no supervisado<a class="headerlink" href="#aprendizaje-no-supervisado" title="Permalink to this headline">¶</a></h3>
-<p>En este caso, el dataset está compuesto sólo por las posibles entradas del modelo, que ha de ser capaz de agrupar los datos según la especificación del problema. En el anterior ejemplo, el modelo tendría que aprender a diferenciar los géneros por las características faciales que mejor discriminan el género.</p>
+<div class="section" id="medidas-de-rendimiento-de-problemas-de-regresion">
+<h2>Medidas de rendimiento de problemas de regresión<a class="headerlink" href="#medidas-de-rendimiento-de-problemas-de-regresion" title="Permalink to this headline">¶</a></h2>
+<p>Las medidas de rendimiento de los problemas de regresión simplemente se basan la diferencia numérica entre el valor de predicción y el valor real. Las más comunes en los problemas de regresión son el <strong>error cuadrático</strong> y el <strong>error absoluto</strong>, y sus distintas modificaciones.</p>
+<div class="section" id="errores-cuadraticos">
+<h3>Errores cuadráticos<a class="headerlink" href="#errores-cuadraticos" title="Permalink to this headline">¶</a></h3>
+<p>El <strong>error cuadrático (Squared Error)</strong> de un valor predicho con respecto al valor real, se calcula cómo:</p>
+<div class="math notranslate nohighlight">
+\[ SE = \sum_j\left[f(X_{j}) - y_j\right]^2\]</div>
+<p><strong>Error cuadrático medio (Mean Squared Error)</strong> Da una idea del error de nuestras predicciones dando más peso a los errores grandes.</p>
+<div class="math notranslate nohighlight">
+\[ MSE = \frac{1}{m}\sum_j^m \left[f(X_{j \cdot}) - y_j\right]^2 \]</div>
+<p><strong>Raiz del error cuadrático medio (Root Mean Square Error)</strong> La raíz cuadrada del MSE produce el error de la raíz cuadrada de la media o la desviación de la raíz cuadrada media (RMSE o RMSD). Tiene las mismas unidades que la cantidad que estima. Para un estimador sin sesgo (bies), el RMSE es la raíz cuadrada de la varianza, es decir la desviación estandar.</p>
+<div class="math notranslate nohighlight">
+\[ RMSE = \sqrt{\frac{1}{m}\sum_j^m \left[f(X_{j \cdot}) - y_j\right]^2} \]</div>
+<p>A pesar de ser una de las métricas más utilizadas, tiene el inconveniente de ser sensible a los valores extremos (outliers). Cuando este comportamiento pueda suponer un problema, los <strong>errores absolutos</strong> pueden darnos una mejor medida de rendimiento.</p>
+</div>
+<div class="section" id="errores-absolutos">
+<h3>Errores absolutos<a class="headerlink" href="#errores-absolutos" title="Permalink to this headline">¶</a></h3>
+<p>El <strong>error absoluto</strong> (Absolute Error) se define cómo:</p>
+<div class="math notranslate nohighlight">
+\[ AE = \sum_j \left|f(X_{j \cdot}) - y_j\right| \]</div>
+<p><strong>Error absoluto medio (Mean Absolute Error)</strong> Es más robusto a los valores extremos y su interpretabilidad es más alta que la del RMSE ya que también está en las unidades de la variable a predecir con la ventaja de que el dato no ha sufrido ninguna transformación.</p>
+<div class="math notranslate nohighlight">
+\[ MAE = \frac{1}{m} \sum_j^m \left|f(X_{j \cdot}) - y_j\right| \]</div>
+<p><strong>Error absoluto medio porcentual (Mean Average Percentage Error)</strong>
+A pesar de su simpleza, presenta varios inconvenientes a la hora de usarlo de forma práctica. Por ejemplo, no puede usarse cuando el valor de referencia es 0. Además, si se usa para elegir métodos predictivos seleccionará de forma sistemática un metodo que prediga valores bajos.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Mean_absolute_percentage_error">wiki</a></p>
+<div class="math notranslate nohighlight">
+\[ MAPE = \frac{1}{m} \sum_j^m \left|\frac{f(X_{j \cdot}) - y_j}{y_j}\right| \]</div>
+</div>
+<div class="section" id="a-considerar">
+<h3>A considerar…<a class="headerlink" href="#a-considerar" title="Permalink to this headline">¶</a></h3>
+<p>Cómo hemos comentado, las métricas expuestas anteriormente pueden considerarse como distancias entre el vector de valores reales y el predicho. De hecho, el RMSE corresponde a la <strong>distancia euclidiana</strong>, también conocida como norma <span class="math notranslate nohighlight">\(l_2\)</span> o <span class="math notranslate nohighlight">\(\lVert{v}\rVert_2\)</span>.
+Por otro lado, el MAE corresponde a la norma <span class="math notranslate nohighlight">\(l_1\)</span> o <span class="math notranslate nohighlight">\(\lVert{v}\rVert_1\)</span>. A esta distancia se la conoce como <strong>distancia de manhattan</strong>, porque sólo se puede viajar de un bloque a otro de la ciudad a traves de calles ortogonales.</p>
+<p>De forma general, una norma <span class="math notranslate nohighlight">\(l_k\)</span> o <span class="math notranslate nohighlight">\(\lVert{v}\rVert_k\)</span> se calcula:</p>
+<div class="math notranslate nohighlight">
+\[\lVert{v}\rVert_k = \left(|v_0|^k + ...+ |v_m|^k \right)^\frac{1}{k}\]</div>
 </div>
 </div>
-<div class="section" id="prediccion">
-<h2>Predicción<a class="headerlink" href="#prediccion" title="Permalink to this headline">¶</a></h2>
-<p>Una vez finalizado el aprendizaje de un modelo a partir del dataset, ya sería posible usarlo mediante el algoritmo de predicción.</p>
-<p>La predicción consiste en, dada una nueva entrada (un nuevo dato) que no ha visto en el aprendizaje, calcular el valor de salida del modelo. En nuestro ejemplo, nos diría el género de una persona a partir de una imagen, o, dependiendo del modelo, también nos podría dar el grado de certeza (probabilidad) de la predicción.</p>
-<p>La predicción se utiliza además para evaluar el rendimiento de los modelos de aprendizaje automático. Normalmente, se divide un dataset etiquetado (aprendizaje supervisado) en datos de aprendizaje y datos de test. Esto permite evaluar el modelo con los datos de test, que no han sido usados para realizar el aprendizaje y así poder estimar su rendimiento ante nuevos datos.</p>
+<div class="section" id="medidas-de-rendimiento-para-problemas-de-clasificacion">
+<h2>Medidas de rendimiento para problemas de clasificación<a class="headerlink" href="#medidas-de-rendimiento-para-problemas-de-clasificacion" title="Permalink to this headline">¶</a></h2>
+<p>Cuando hablamos de problemas de clasificación, existe una gran variedad de métricas que nos permiten determinar cómo de bueno es nuestro clasificador.</p>
+<div class="section" id="tipos-de-error-de-clasificacion">
+<h3>Tipos de error de clasificacion<a class="headerlink" href="#tipos-de-error-de-clasificacion" title="Permalink to this headline">¶</a></h3>
+<p>En el caso de los problemas de clasificación la medida de rendimiento es más compleja por que podemos tener 4 casos distintos.</p>
+<p><strong>Verdadero Positivo (TP)</strong>: Un acierto, el valor de predicción es igual al valor real.</p>
+<p><strong>Verdadero Negativo (TN)</strong>: Un acierto, el valor de predicción es igual al valor real, la diferencia entre los dos tipos de verdadero es la pregunta que queremos resolver. Por ejemplo, si queremos encontrar mujeres en nuestro problema de reconocimiento de género, un verdadero positivo sería que una mujer es reconocida como mujer, y un verdadero negativo, sería un hombre reconocido como hombre.</p>
+<p><strong>Falso Positivo (FP)</strong>: Una “falsa alarma”, es decir, un error donde un valor de predicción no es el valor real. En el problema de género sería reconocer como mujer a un hombre.</p>
+<p><strong>Falso Negativo (FN)</strong>: Un “error”, es decir, un error donde un valor real no es reconocido. En el problema de género sería no reconocer a una mujer (o reconocer una mujer como hombre).</p>
 </div>
-<div class="section" id="ejercicios">
-<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">¶</a></h2>
-<p><strong>¿Cuál de los siguientes problemas sería de aprendizaje supervisado?</strong></p>
+<div class="section" id="matriz-de-confusion">
+<h3>Matriz de confusión<a class="headerlink" href="#matriz-de-confusion" title="Permalink to this headline">¶</a></h3>
+<p>Antes de empezar, consideremos el caso básico de una clasificación binaria en el que intentamos predecir una clase. Imagina que hemos entrenado un modelo y realizado una serie de predicciones. Es fácil entonces crear una tabla que contenga la siguiente información.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="text-align:center head"><p>Predicción: Perro</p></th>
+<th class="text-align:center head"><p>Predicción: Gato</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Observación Perro</strong></p></td>
+<td class="text-align:center"><p><span style='color:green'>25</span></p></td>
+<td class="text-align:center"><p><span style='color:red'>3</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Observación Gato</strong></p></td>
+<td class="text-align:center"><p><span style='color:red'>9</span></p></td>
+<td class="text-align:center"><p><span style='color:green'>19</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Esta tabla se conoce cómo matriz de confusión (en ingles, confusion matrix) y es facilmente extendible a problemas de clasificación de varias categorías.</p>
+<p>Lo que nos dice esta matriz de forma simplificada es:</p>
 <ol class="simple">
-<li><p>Dado un dataset de emails etiquetados como spam / no spam, aprender un filtro de spam.</p></li>
-<li><p>Dados un conjunto de artículos encontrados en la web, agruparlos en conjuntos que cuentan la misma historia.</p></li>
-<li><p>Dada una base de datos de información sobre consumidores, agruparlos automáticamente en segmentos diferentes de mercado.</p></li>
-<li><p>Dada una base de datos de pacientes diagnosticados con diabetes o no, aprender a clasificar nuevos pacientes según si tienen diabetes o no.</p></li>
+<li><p>En total tenemos 25+3+9+19 = 56 muestras sobre las que hemos realizado predicciones</p></li>
+<li><p>De las 56, 25 + 9 = 34 pertenecen a la clase <em>perro</em> y 3+19 = 21 pertenecen a la clase <em>gato</em></p></li>
+<li><p>De los 34 <em>perros</em>, hemos predicho bien la categoría en 25 casos y mal en 9.</p></li>
+<li><p>De los 21 <em>gatos</em>, hemos predicho bien la categoría gato en 19 casos y mal en 3</p></li>
 </ol>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="text-align:center head"><p>Prediction Positive</p></th>
+<th class="text-align:center head"><p>Prediction Negative</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Observation Positive</strong></p></td>
+<td class="text-align:center"><p>True Positive</p></td>
+<td class="text-align:center"><p>False Positive (Type I)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Observation Negative</strong></p></td>
+<td class="text-align:center"><p>False Negative (Type II)</p></td>
+<td class="text-align:center"><p>True Negative</p></td>
+</tr>
+</tbody>
+</table>
+<p>A partir de esta matriz, se construyen la mayoría de métricas asociadas con los problemas de clasificación.</p>
 </div>
-<div class="section" id="referencias">
-<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
-<p><span id="fn1"> </span>
-<a class="reference external" href="http://www.cs.cmu.edu/~tom/mlbook.html">1. Machine Learning - Tom Mitchell</a></p>
+<div class="section" id="metricas-segun-clase-predicha">
+<h3>Métricas según clase predicha<a class="headerlink" href="#metricas-segun-clase-predicha" title="Permalink to this headline">¶</a></h3>
+<p><img alt="medidas-clasificacion" src="../../_images/ch1-metricas-clasificacion.png" /></p>
+<p><strong>Accuracy</strong></p>
+<p>De forma general, ¿cuantas veces predigo la clase correcta? La más común y muchas veces, la más susceptible a darnos un clasificador erroneo, sobre todo en sets de datos no balanceados.</p>
+<div class="math notranslate nohighlight">
+\[Accuracy = \frac{TP+TN}{total} = \frac{25+19}{56} \sim 0.786\]</div>
+<p><strong>Error Rate</strong></p>
+<p>De similar modo, ¿Cuántas veces me equivoco?</p>
+<div class="math notranslate nohighlight">
+\[ Error Rate = 1 - Accuracy = \frac{FP+FN}{total} = \frac{9+3}{56} \sim 0.214 \]</div>
+<p><strong>Recall (sensitivity)</strong></p>
+<p>Cuando es <em>perro</em>, ¿cuantas veces predecimos <em>perro</em>?</p>
+<div class="math notranslate nohighlight">
+\[ Recall = \frac{TP}{actual Trues} = \frac{TP}{TP + FN} = \frac{25}{25 + 9} \sim 0.735 \]</div>
+<p><strong>Specificity</strong></p>
+<p>Cuando es <em>gato</em>, ¿cuántas veces predecimos <em>gato</em>?</p>
+<div class="math notranslate nohighlight">
+\[ Specificity = \frac{TN}{actual Falses} = \frac{TN}{TN + FP} = \frac{21}{19 + 9} \sim 0.75 \]</div>
+<p><strong>Precision</strong></p>
+<p>Cuando predecimos <em>perro</em>, cuantas veces es correcto?</p>
+<div class="math notranslate nohighlight">
+\[ Precision = \frac{TP}{predicted Trues} = \frac{TP}{TP + FP} = \frac{25}{25 + 3} \sim 0.892 \]</div>
+<p><strong>F1-score</strong></p>
+<p>A menudo es conveniente <strong>combinar la precision y el recall en una sola métrica</strong> para comparar de forma sencilla dos clasificadores. En vez de calcular una media de la precisión y el recall, se calcula su <strong>media harmónica</strong>. De esta forma se da más peso a los valores bajos por lo que sólo se conseguirá un F1-score alto si ambas, Precision y Recall, son altas.</p>
+<div class="math notranslate nohighlight">
+\[F_1= \frac{1}{\frac{1}{precision} + \frac{1}{recall}} = 2 \times \frac{precision \times recall}{precision + recall} = \frac{TP}{TP + \frac{FN + FP}{2}} \]</div>
+</div>
 </div>
 </div>
 
