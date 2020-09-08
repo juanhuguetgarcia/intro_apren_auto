@@ -1,5 +1,3 @@
-- file: intro
-- file: content
+- file: chapters/ch1/intro
   sections:
-    - file: markdown
-    - file: notebooks
+    - file: chapters/ch1/notebooks
