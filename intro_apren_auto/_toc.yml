@@ -1,4 +1,4 @@
 - file: chapters/ch1/ch1-intro-01-introduccion
   sections:
-    - file: chapters/ch1/ch1-intro-01-1-terminologia-basica
-
+    - file: chapters/ch1/ch1-intro-02-terminologia-basica
+    - file: chapters/ch1/ch1-intro-03-metricas
