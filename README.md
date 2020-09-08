@@ -1,35 +1,34 @@
-# intro-apren-auto
+# Introducción al aprendizaje automático
 
-Introducción al aprendizaje automático
+Libro de docencia para la asignatura `Introducción al aprendizaje automático`.
 
-## Usage
+Disponible online  en:
 
-### Building the book
+[Intro-apren-auto](https://juanhuguetgarcia.github.io/intro_apren_auto/intro.html)
 
-If you'd like to develop on and build the intro-apren-auto book, you should:
+## Uso
 
-- Clone this repository and run
-- Run `pip install requirements.txt` (it is recommended you do this within a virtual environment)
-- (Recommended) Remove the existing `intro-apren-auto/_build/` directory
-- Run `jupyter-book build intro-apren-auto/`
+### Renderizado del libro
 
-A fully-rendered HTML version of the book will be built in `intro-apren-auto/_build/html/`.
+- Clona el repositorio
+- Instala las dependencias (se recomienda usar un entorno virtual): `pip install -r requirements.txt` 
+- (Recomendado) Elimina el directorio `intro-apren-auto/_build/`
+- Ejecuta el comando: `jupyter-book build intro-apren-auto/`
 
-### Hosting the book
+La version completa del libro renderizada en HTML se encontrará en `intro-apren-auto/_build/html/`.
 
-The html version of the book is hosted on the `gh-pages` branch of this repo. A GitHub actions workflow has been created that automatically builds and pushes the book to this branch on a push or pull request to master.
+### Publicar el libro
 
-If you wish to disable this automation, you may remove the GitHub actions workflow and build the book manually by:
+La version html del libro se encuentra online disponible en la rama `gh-pages` de este repositorio. Cada `push` o
+`pull request` a la rama `master` desencadenara el workflow de acciones de GitHub que renderiza y publica automáticamente
+el libro. 
 
-- Navigating to your local build; and running,
-- `ghp-import -n -p -f intro-apren-auto/_build/html`
+## Contribución
 
-This will automatically push your build to the `gh-pages` branch. More information on this hosting process can be found [here](https://jupyterbook.org/publish/gh-pages.html#manually-host-your-book-with-github-pages).
+Animamos y reconocemos las colaboraciones.
 
-## Contributors
+La lista completa de los contribuidores principales está disponible aquí: [contribuidores](https://github.com/juanhuguetgarcia/intro_apren_auto/graphs/contributors).
 
-We welcome and recognize all contributions. You can see a list of current contributors in the [contributors tab](https://github.com/juanhuguetgarcia/intro_apren_auto/graphs/contributors).
+## Creditos
 
-## Credits
-
-This project is created using the excellent open source [Jupyter Book project](https://jupyterbook.org/) and the [executablebooks/cookiecutter-jupyter-book template](https://github.com/executablebooks/cookiecutter-jupyter-book).
+Las herramientas que hacen posible este proyecto son [Jupyter Book project](https://jupyterbook.org/) y [executablebooks/cookiecutter-jupyter-book template](https://github.com/executablebooks/cookiecutter-jupyter-book).
