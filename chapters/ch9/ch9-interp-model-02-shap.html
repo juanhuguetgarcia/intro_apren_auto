@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terminología básica &#8212; Introducción al Aprendizaje Automático</title>
+    <title>Valores SHAP &#8212; Introducción al Aprendizaje Automático</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -37,8 +37,6 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Medidas de rendimiento" href="ch1-intro-03-metricas.html" />
-    <link rel="prev" title="Introducción al Aprendizaje Automático" href="ch1-intro-01-introduccion.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -83,19 +81,19 @@
   Introducción
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="ch1-intro-01-introduccion.html">
+  <a class="reference internal" href="../ch1/ch1-intro-01-introduccion.html">
    Introducción al Aprendizaje Automático
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch1/ch1-intro-02-terminologia-basica.html">
    Terminología básica
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="ch1-intro-03-metricas.html">
+  <a class="reference internal" href="../ch1/ch1-intro-03-metricas.html">
    Medidas de rendimiento
   </a>
  </li>
@@ -226,7 +224,7 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch9/ch9-interp-model-01-lime.html">
+  <a class="reference internal" href="ch9-interp-model-01-lime.html">
    Lime
   </a>
  </li>
@@ -280,7 +278,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/chapters/ch1/ch1-intro-02-terminologia-basica.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/chapters/ch9/ch9-interp-model-02-shap.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -300,7 +298,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/juanhuguetgarcia/intro_apren_auto/issues/new?title=Issue%20on%20page%20%2Fchapters/ch1/ch1-intro-02-terminologia-basica.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/juanhuguetgarcia/intro_apren_auto/issues/new?title=Issue%20on%20page%20%2Fchapters/ch9/ch9-interp-model-02-shap.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -320,7 +318,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/juanhuguetgarcia/intro_apren_auto/master?urlpath=tree/chapters/ch1/ch1-intro-02-terminologia-basica.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/juanhuguetgarcia/intro_apren_auto/master?urlpath=tree/chapters/ch9/ch9-interp-model-02-shap.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -328,7 +326,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/juanhuguetgarcia/intro_apren_auto/blob/master/chapters/ch1/ch1-intro-02-terminologia-basica.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/juanhuguetgarcia/intro_apren_auto/blob/master/chapters/ch9/ch9-interp-model-02-shap.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -345,41 +343,7 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tipos-de-aprendizaje-automatico">
-   Tipos de aprendizaje automático
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aprendizaje-supervisado">
-     Aprendizaje supervisado
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aprendizaje-no-supervisado">
-     Aprendizaje no supervisado
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prediccion">
-   Predicción
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ejercicios">
-   Ejercicios
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#referencias">
-   Referencias
-  </a>
- </li>
-</ul>
-
+            
         </nav>
     </div>
 </div>
@@ -388,53 +352,8 @@
         
               <div>
                 
-  <div class="section" id="terminologia-basica">
-<h1>Terminología básica<a class="headerlink" href="#terminologia-basica" title="Permalink to this headline">¶</a></h1>
-<p>Una de las definiciones formales más aceptadas del Aprendizaje Automático es la de Tom Mitchell<a class="reference external" href="#fn1"><sup>1</sup></a> de la Carnegie Mellon University (CMU):</p>
-<blockquote>
-<div><p>A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
-</div></blockquote>
-<p>o en castellano:</p>
-<blockquote>
-<div><p>“Un programa computacional que aprende de la experiencia E para resolver una determinada tarea T, si su rendimiento R para resolver la tarea T mejora a través de la experiencia E”</p>
-</div></blockquote>
-<p>En primer lugar, tenemos que tener clara la tarea <span class="math notranslate nohighlight">\(T\)</span> (problema) a resolver. Por ejemplo, imaginemos que tenemos que hacer un programa que sea capaz de reconocer el genero de una persona a través de su fotografía, es decir, que, dada la imagen de una persona, nuestro programa devuelva como resultado si es <code class="docutils literal notranslate"><span class="pre">hombre</span></code> o <code class="docutils literal notranslate"><span class="pre">mujer</span></code>.</p>
-<p>¿Cuál sería la experiencia <span class="math notranslate nohighlight">\(E\)</span> en esta tarea? Pues un conjunto de imágenes etiquetadas con el género de cada persona. Esta experiencia se define formalmente como dataset. Una vez tenemos los datos preparados, ya podemos realizar el programa que consistirá en la implementación de alguno de los modelos conocidos de Aprendizaje Automático.</p>
-<p>Este programa ha de ser capaz de predecir el género de una persona cuando reciba una imagen de entrada, y para realizar dicha predicción, ha de realizar previamente el aprendizaje para resolver el problema a partir de los datos. El aprendizaje consistirá en ir mostrando diferentes imágenes e ir ajustando los parámetros de nuestro modelo con el objetivo de minimizar el error de la predicción, es decir, los aciertos de nuestro modelo respecto a las etiquetas reales del dataset.</p>
-<p>En este ejemplo, hemos visto 3 términos básicos de los métodos de aprendizaje automático: <strong>dataset</strong>, <strong>predicción</strong> y <strong>aprendizaje</strong>. El <strong>dataset</strong>, o conjunto de datos, nos define el problema a resolver, y es necesario para poder realizar el aprendizaje de un modelo de Aprendizaje Automático. El <strong>aprendizaje</strong>, o entrenamiento, consiste en establecer los parámetros de un modelo de Aprendizaje Automático para que resuelvan el problema definido por los datos, y consiste en un algoritmo que, generalmente, es particular para cada uno de los modelos.</p>
-<div class="section" id="tipos-de-aprendizaje-automatico">
-<h2>Tipos de aprendizaje automático<a class="headerlink" href="#tipos-de-aprendizaje-automatico" title="Permalink to this headline">¶</a></h2>
-<p>La división más usada entre los modelos de Aprendizaje Automático depende del tipo de algoritmo.</p>
-<div class="section" id="aprendizaje-supervisado">
-<h3>Aprendizaje supervisado<a class="headerlink" href="#aprendizaje-supervisado" title="Permalink to this headline">¶</a></h3>
-<p>El dataset está compuesto por <strong>pares</strong> de entrenamiento que consisten en entrada y salida deseada (etiqueta). Es como si tuviéramos un <strong>maestro</strong> que para cada muestra o ejemplo nos dice cuál tendría que ser la salida. Es el caso del ejemplo anterior de reconocimiento de género. Donde la entrada sería la imagen de una persona y la salida deseada sería el género real de la persona. Casi la totalidad de los casos de uso en la industria a día de hoy pertenecen a este tipo de aprendizaje.</p>
-</div>
-<div class="section" id="aprendizaje-no-supervisado">
-<h3>Aprendizaje no supervisado<a class="headerlink" href="#aprendizaje-no-supervisado" title="Permalink to this headline">¶</a></h3>
-<p>En este caso, el dataset está compuesto sólo por las posibles entradas del modelo, que ha de ser capaz de agrupar los datos según la especificación del problema. En el anterior ejemplo, el modelo tendría que aprender a diferenciar los géneros por las características faciales que mejor discriminan el género.</p>
-</div>
-</div>
-<div class="section" id="prediccion">
-<h2>Predicción<a class="headerlink" href="#prediccion" title="Permalink to this headline">¶</a></h2>
-<p>Una vez finalizado el aprendizaje de un modelo a partir del dataset, ya sería posible usarlo mediante el algoritmo de predicción.</p>
-<p>La predicción consiste en, dada una nueva entrada (un nuevo dato) que no ha visto en el aprendizaje, calcular el valor de salida del modelo. En nuestro ejemplo, nos diría el género de una persona a partir de una imagen, o, dependiendo del modelo, también nos podría dar el grado de certeza (probabilidad) de la predicción.</p>
-<p>La predicción se utiliza además para evaluar el rendimiento de los modelos de aprendizaje automático. Normalmente, se divide un dataset etiquetado (aprendizaje supervisado) en datos de aprendizaje y datos de test. Esto permite evaluar el modelo con los datos de test, que no han sido usados para realizar el aprendizaje y así poder estimar su rendimiento ante nuevos datos.</p>
-</div>
-<div class="section" id="ejercicios">
-<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">¶</a></h2>
-<p><strong>¿Cuál de los siguientes problemas sería de aprendizaje supervisado?</strong></p>
-<ol class="simple">
-<li><p>Dado un dataset de emails etiquetados como spam / no spam, aprender un filtro de spam.</p></li>
-<li><p>Dados un conjunto de artículos encontrados en la web, agruparlos en conjuntos que cuentan la misma historia.</p></li>
-<li><p>Dada una base de datos de información sobre consumidores, agruparlos automáticamente en segmentos diferentes de mercado.</p></li>
-<li><p>Dada una base de datos de pacientes diagnosticados con diabetes o no, aprender a clasificar nuevos pacientes según si tienen diabetes o no.</p></li>
-</ol>
-</div>
-<div class="section" id="referencias">
-<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
-<p><span id="fn1"> </span>
-<a class="reference external" href="http://www.cs.cmu.edu/~tom/mlbook.html">1. Machine Learning - Tom Mitchell</a></p>
-</div>
+  <div class="section" id="valores-shap">
+<h1>Valores SHAP<a class="headerlink" href="#valores-shap" title="Permalink to this headline">¶</a></h1>
 </div>
 
     <script type="text/x-thebe-config">
@@ -450,7 +369,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chapters/ch1"
+            path: "./chapters/ch9"
         },
         predefinedOutput: true
     }
@@ -465,8 +384,6 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="ch1-intro-01-introduccion.html" title="previous page">Introducción al Aprendizaje Automático</a>
-    <a class='right-next' id="next-link" href="ch1-intro-03-metricas.html" title="next page">Medidas de rendimiento</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
