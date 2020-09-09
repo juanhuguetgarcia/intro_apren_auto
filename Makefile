@@ -17,6 +17,10 @@ PROJECT_NAME = intro_apren_auto
 build:
 	jb build ${PROJECT_NAME}
 
+## Build source to pdf output
+build-pdf:
+	jb build ${PROJECT_NAME} --builder pdflatex
+
 ## Delete current build files
 clean:
 	rm -r ${PROJECT_NAME}/_build

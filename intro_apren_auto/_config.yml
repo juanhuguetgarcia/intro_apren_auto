@@ -5,7 +5,7 @@
 #######################################################################################
 # Book settings
 title                       : Introducción al Aprendizaje Automático  # The title of the book. Will be placed in the left navbar.
-author                      : J. Varona; G. Moyà, J. Huguet-Garcia  # The authors of the book
+author                      : J. Varona, G. Moyà, J. Huguet-Garcia  # The authors of the book
 copyright                   : "2020"  # Copyright year to be placed in the footer
 logo                        : img/logo.png  # A path to the book logo
 exclude_patterns            : []  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
