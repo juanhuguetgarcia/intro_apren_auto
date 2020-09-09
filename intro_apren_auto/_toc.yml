@@ -40,7 +40,6 @@
 - part: Aprendizaje no supervisado
   sections:
    - file: chapters/ch8/ch8-apr-no-sup-01-clustering
-   - file: chapters/ch8/ch8-apr-no-sup-02-metricas-clustering
 
 - part: Interpretación de Modelos
   sections:
@@ -49,4 +48,5 @@
 
 - part: Productivización
   sections:
-   - file: chapters/ch10/ch10-interp-model-01-lime
+   - file: chapters/ch10/ch10-product-01-batch
+   - file: chapters/ch10/ch10-product-01-real-time
