@@ -14,7 +14,7 @@
   sections:
     - file: chapters/ch3/ch3-modelos-lineales-01-perceptron
     - file: chapters/ch3/ch3-modelos-lineales-02-reg-lineal
-    - file: chapters/ch3/ch3-modelos-lineales-02-reg-logistica
+    - file: chapters/ch3/ch3-modelos-lineales-03-reg-logistica
 
 - part: Ingenieria y Selección de características
   sections:
