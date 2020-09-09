@@ -23,7 +23,7 @@
 
 - part: Modelos Generativos
   sections:
-   - file: chapters/ch5/ch5-modelos-generativos-01-gausianos
+   - file: chapters/ch5/ch5-modelos-generativos-01-gaussianos
    - file: chapters/ch5/ch5-modelos-generativos-02-naive-bayes
 
 - part: Máquinas de vector soporte
