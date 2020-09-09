@@ -44,9 +44,9 @@
 - part: Interpretación de Modelos
   sections:
    - file: chapters/ch9/ch9-interp-model-01-lime
-   - file: chapters/ch9/ch9-interp-model-01-shap
+   - file: chapters/ch9/ch9-interp-model-02-shap
 
 - part: Productivización
   sections:
    - file: chapters/ch10/ch10-product-01-batch
-   - file: chapters/ch10/ch10-product-01-real-time
+   - file: chapters/ch10/ch10-product-02-real-time
