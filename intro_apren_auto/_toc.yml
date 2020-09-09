@@ -21,32 +21,32 @@
     - file: chapters/ch4/ch4-ing-sel-carac-01-seleccion-caracteristicas
     - file: chapters/ch4/ch4-ing-sel-carac-02-ingenieria-caracteristicas
 
--part: Modelos Generativos
-   sections:
+- part: Modelos Generativos
+  sections:
    - file: chapters/ch5/ch5-modelos-generativos-01-gausianos
    - file: chapters/ch5/ch5-modelos-generativos-02-naive-bayes
 
 - part: Máquinas de vector soporte
-   sections:
+  sections:
    - file: chapters/ch6/ch6-svm-01-lineales
    - file: chapters/ch6/ch6-svm-02-rbf
 
 - part: Arboles de decisión
-   sections:
+  sections:
    - file: chapters/ch7/ch7-dev-tree-01-arboles-decision
    - file: chapters/ch7/ch7-dev-tree-02-bagging
    - file: chapters/ch7/ch7-dev-tree-03-boosting
 
 - part: Aprendizaje no supervisado
-   sections:
+  sections:
    - file: chapters/ch8/ch8-apr-no-sup-01-clustering
    - file: chapters/ch8/ch8-apr-no-sup-02-metricas-clustering
 
 - part: Interpretación de Modelos
-   sections:
+  sections:
    - file: chapters/ch9/ch9-interp-model-01-lime
    - file: chapters/ch9/ch9-interp-model-01-shap
 
 - part: Productivización
-   sections:
+  sections:
    - file: chapters/ch10/ch10-interp-model-01-lime
