@@ -31,11 +31,10 @@
    - file: chapters/ch6/ch6-svm-01-lineales
    - file: chapters/ch6/ch6-svm-02-rbf
 
-- part: Arboles de decisión
+- part: Métodos basados en árboles de decisión
   sections:
    - file: chapters/ch7/ch7-dev-tree-01-arboles-decision
    - file: chapters/ch7/ch7-dev-tree-02-bagging
-   - file: chapters/ch7/ch7-dev-tree-03-boosting
 
 - part: Aprendizaje no supervisado
   sections:
